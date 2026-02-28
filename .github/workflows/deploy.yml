@@ -58,7 +58,7 @@ jobs:
           from pathlib import Path
 
           ROOT = Path("quartz-src/content")
-          TARGET_KEYS = ("up", "down", "relation")
+          TARGET_KEYS = ("up", "down", "relation", "tags")
           MARK_START = "<!-- quartz-rel-start -->"
           MARK_END = "<!-- quartz-rel-end -->"
 
@@ -112,16 +112,18 @@ jobs:
 
               lines = []
               if rel["up"]:
-                  lines.append(f"- 上级：{'、'.join(to_wikilink(x) for x in rel['up'])}")
+                  lines.append(f"- 上层：{'、'.join(to_wikilink(x) for x in rel['up'])}")
               if rel["down"]:
-                  lines.append(f"- 下级：{'、'.join(to_wikilink(x) for x in rel['down'])}")
+                  lines.append(f"- 下层：{'、'.join(to_wikilink(x) for x in rel['down'])}")
               if rel["relation"]:
                   lines.append(f"- 关联：{'、'.join(to_wikilink(x) for x in rel['relation'])}")
+              if rel["tags"]:
+                  lines.append(f"- 标签：{'、'.join(to_wikilink(x) for x in rel['tags'])}")
               if not lines:
                   return body
 
               block = "\n".join(
-                  [MARK_START, "### 关系导航", "", *lines, MARK_END, ""]
+                  [MARK_START, *lines, MARK_END, ""]
               )
               return f"{block}\n{body}"
 
@@ -137,6 +139,18 @@ jobs:
                   continue
               new_body = inject_block(body, rel)
               md.write_text(text[:m.end()] + new_body, encoding="utf-8")
+          PY
+
+      - name: Patch Quartz labels
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          zh = Path("quartz-src/quartz/i18n/locales/zh-CN.ts")
+          text = zh.read_text(encoding="utf-8")
+          text = text.replace('title: "反向链接"', 'title: "连接到当前文件"')
+          text = text.replace('noBacklinksFound: "无法找到反向链接"', 'noBacklinksFound: "暂无连接到当前文件的内容"')
+          zh.write_text(text, encoding="utf-8")
           PY
 
       - name: Install Quartz dependencies

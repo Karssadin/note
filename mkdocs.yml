@@ -1,0 +1,41 @@
+site_name: Note
+site_description: Personal notes published from Markdown
+site_url: https://example.github.io/
+
+docs_dir: .
+site_dir: site
+
+theme:
+  name: material
+  language: zh
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+exclude_docs: |
+  .git/
+  .github/
+  .obsidian/
+  site/
+  public/
+  dist/
+  node_modules/

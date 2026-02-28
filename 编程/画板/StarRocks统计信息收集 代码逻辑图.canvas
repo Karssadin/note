@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"de456eb0cecdf0c8","type":"text","text":"","x":-282,"y":-420,"width":344,"height":148},
+		{"id":"7026c7b79fc60e19","type":"text","text":"StatisticSQLBuilder.java：生成收集、删除统计信息的SQL语句\n\n1","x":-398,"y":-880,"width":460,"height":120}
+	],
+	"edges":[
+		{"id":"b7ee4fd66cdb3b2b","fromNode":"7026c7b79fc60e19","fromSide":"bottom","toNode":"de456eb0cecdf0c8","toSide":"top"}
+	]
+}

@@ -182,6 +182,10 @@ jobs:
           text = text.replace('beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],',
                               'beforeBody: [Component.ArticleTitle(), Component.ContentMeta()],')
           text = text.replace('Component.Explorer(),\n', '')
+          text = text.replace(
+              'Component.Graph(),',
+              'Component.Graph({ localGraph: { depth: 3 } }),'
+          )
           layout.write_text(text, encoding="utf-8")
           PY
 

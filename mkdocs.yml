@@ -2,7 +2,7 @@ site_name: Note
 site_description: Personal notes published from Markdown
 site_url: https://example.github.io/
 
-docs_dir: .
+docs_dir: _docs
 site_dir: site
 
 theme:
@@ -31,11 +31,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
-exclude_docs: |
-  .git/
-  .github/
-  .obsidian/
-  site/
-  public/
-  dist/
-  node_modules/

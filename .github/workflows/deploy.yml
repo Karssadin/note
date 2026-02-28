@@ -30,6 +30,21 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material pymdown-extensions
 
+      - name: Prepare docs directory
+        run: |
+          rm -rf _docs
+          mkdir -p _docs
+          rsync -a --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '.obsidian/' \
+            --exclude '_docs/' \
+            --exclude 'site/' \
+            --exclude 'public/' \
+            --exclude 'dist/' \
+            --exclude 'node_modules/' \
+            ./ _docs/
+
       - name: Build site
         run: mkdocs build
 

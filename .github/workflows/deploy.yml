@@ -49,7 +49,19 @@ jobs:
             --exclude 'dist/' \
             --exclude 'node_modules/' \
             --exclude '_docs/' \
+            --exclude 'template/' \
             ./ quartz-src/content/
+
+      - name: Set notes list as homepage
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          root = Path("quartz-src/content")
+          src = root / "笔记列表.md"
+          dst = root / "index.md"
+          if src.exists():
+              dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+          PY
 
       - name: Render custom relation fields
         run: |
@@ -150,6 +162,7 @@ jobs:
           text = zh.read_text(encoding="utf-8")
           text = text.replace('title: "反向链接"', 'title: "连接到当前文件"')
           text = text.replace('noBacklinksFound: "无法找到反向链接"', 'noBacklinksFound: "暂无连接到当前文件的内容"')
+          text = text.replace('title: "探索"', 'title: ""')
           zh.write_text(text, encoding="utf-8")
           PY
 

@@ -153,6 +153,64 @@ jobs:
           zh.write_text(text, encoding="utf-8")
           PY
 
+      - name: Apply theme preset C1
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          cfg_path = Path("quartz-src/quartz.config.ts")
+          cfg = cfg_path.read_text(encoding="utf-8")
+          cfg = cfg.replace('locale: "en-US"', 'locale: "zh-CN"')
+          cfg = cfg.replace('header: "Schibsted Grotesk"', 'header: "Noto Serif SC"')
+          cfg = cfg.replace('body: "Source Sans Pro"', 'body: "Noto Sans SC"')
+          cfg = cfg.replace('code: "IBM Plex Mono"', 'code: "JetBrains Mono"')
+          cfg = cfg.replace('secondary: "#284b63"', 'secondary: "#2f6f7e"')
+          cfg = cfg.replace('tertiary: "#84a59d"', 'tertiary: "#5fa08e"')
+          cfg = cfg.replace('secondary: "#7b97aa"', 'secondary: "#8bc2cf"')
+          cfg = cfg.replace('tertiary: "#84a59d"', 'tertiary: "#7fd7be"')
+          cfg_path.write_text(cfg, encoding="utf-8")
+
+          css_path = Path("quartz-src/quartz/styles/custom.scss")
+          css_path.write_text(
+              """@use "./base.scss";
+
+/* C preset: garden-network visual style */
+:root {
+  --radius-soft: 10px;
+}
+
+.page-title,
+h1, h2, h3 {
+  letter-spacing: 0.01em;
+}
+
+a.internal {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.08em;
+}
+
+.popover,
+.backlinks,
+.toc,
+.recent-notes {
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--lightgray);
+  box-shadow: 0 3px 14px color-mix(in srgb, var(--dark) 8%, transparent);
+}
+
+.graph,
+#graph-container {
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--lightgray);
+  background:
+    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--tertiary) 18%, transparent), transparent 40%),
+    radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 38%);
+}
+""",
+              encoding="utf-8",
+          )
+          PY
+
       - name: Install Quartz dependencies
         working-directory: quartz-src
         run: npm ci

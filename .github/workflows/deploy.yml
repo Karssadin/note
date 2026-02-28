@@ -51,6 +51,94 @@ jobs:
             --exclude '_docs/' \
             ./ quartz-src/content/
 
+      - name: Render custom relation fields
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+
+          ROOT = Path("quartz-src/content")
+          TARGET_KEYS = ("up", "down", "relation")
+          MARK_START = "<!-- quartz-rel-start -->"
+          MARK_END = "<!-- quartz-rel-end -->"
+
+          def strip_quotes(value: str) -> str:
+              value = value.strip()
+              if len(value) >= 2 and ((value[0] == value[-1]) and value[0] in ("'", '"')):
+                  return value[1:-1].strip()
+              return value
+
+          def parse_frontmatter_lists(frontmatter: str):
+              lines = frontmatter.splitlines()
+              data = {k: [] for k in TARGET_KEYS}
+              i = 0
+              while i < len(lines):
+                  raw = lines[i]
+                  m = re.match(r"^([A-Za-z_][A-Za-z0-9_-]*):\s*$", raw)
+                  if not m:
+                      i += 1
+                      continue
+                  key = m.group(1)
+                  i += 1
+                  if key not in data:
+                      while i < len(lines) and (lines[i].startswith(" ") or lines[i].startswith("\t")):
+                          i += 1
+                      continue
+                  while i < len(lines):
+                      line = lines[i]
+                      if not line.startswith(" ") and not line.startswith("\t"):
+                          break
+                      list_match = re.match(r"^\s*-\s*(.+?)\s*$", line)
+                      if list_match:
+                          value = strip_quotes(list_match.group(1))
+                          if value:
+                              data[key].append(value)
+                      i += 1
+              return data
+
+          def to_wikilink(text: str) -> str:
+              text = text.strip()
+              if text.startswith("[[") and text.endswith("]]"):
+                  return text
+              return f"[[{text}]]"
+
+          def inject_block(body: str, rel):
+              body = re.sub(
+                  rf"{re.escape(MARK_START)}.*?{re.escape(MARK_END)}\n?",
+                  "",
+                  body,
+                  flags=re.S,
+              ).lstrip("\n")
+
+              lines = []
+              if rel["up"]:
+                  lines.append(f"- 上级：{'、'.join(to_wikilink(x) for x in rel['up'])}")
+              if rel["down"]:
+                  lines.append(f"- 下级：{'、'.join(to_wikilink(x) for x in rel['down'])}")
+              if rel["relation"]:
+                  lines.append(f"- 关联：{'、'.join(to_wikilink(x) for x in rel['relation'])}")
+              if not lines:
+                  return body
+
+              block = "\n".join(
+                  [MARK_START, "### 关系导航", "", *lines, MARK_END, ""]
+              )
+              return f"{block}\n{body}"
+
+          for md in ROOT.rglob("*.md"):
+              text = md.read_text(encoding="utf-8", errors="ignore")
+              m = re.match(r"^---\n(.*?)\n---\n?", text, flags=re.S)
+              if not m:
+                  continue
+              frontmatter = m.group(1)
+              body = text[m.end():]
+              rel = parse_frontmatter_lists(frontmatter)
+              if not any(rel.values()):
+                  continue
+              new_body = inject_block(body, rel)
+              md.write_text(text[:m.end()] + new_body, encoding="utf-8")
+          PY
+
       - name: Install Quartz dependencies
         working-directory: quartz-src
         run: npm ci

@@ -169,11 +169,16 @@ jobs:
       - name: Remove hierarchy navigation
         run: |
           python3 - <<'PY'
+          import re
           from pathlib import Path
 
           layout = Path("quartz-src/quartz.layout.ts")
           text = layout.read_text(encoding="utf-8")
-          text = text.replace('      component: Component.Breadcrumbs(),\n', '')
+          text = re.sub(
+              r'\s*Component\.ConditionalRender\(\{\n(?:\s*component: Component\.Breadcrumbs\(\),\n)?\s*condition: \(page\) => page\.fileData\.slug !== "index",\n\s*\}\),\n',
+              '\n',
+              text,
+          )
           text = text.replace('beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],',
                               'beforeBody: [Component.ArticleTitle(), Component.ContentMeta()],')
           text = text.replace('Component.Explorer(),\n', '')

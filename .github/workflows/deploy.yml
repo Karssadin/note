@@ -171,44 +171,38 @@ jobs:
           cfg_path.write_text(cfg, encoding="utf-8")
 
           css_path = Path("quartz-src/quartz/styles/custom.scss")
-          css_path.write_text(
-              """@use "./base.scss";
-
-/* C preset: garden-network visual style */
-:root {
-  --radius-soft: 10px;
-}
-
-.page-title,
-h1, h2, h3 {
-  letter-spacing: 0.01em;
-}
-
-a.internal {
-  text-underline-offset: 0.18em;
-  text-decoration-thickness: 0.08em;
-}
-
-.popover,
-.backlinks,
-.toc,
-.recent-notes {
-  border-radius: var(--radius-soft);
-  border: 1px solid var(--lightgray);
-  box-shadow: 0 3px 14px color-mix(in srgb, var(--dark) 8%, transparent);
-}
-
-.graph,
-#graph-container {
-  border-radius: var(--radius-soft);
-  border: 1px solid var(--lightgray);
-  background:
-    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--tertiary) 18%, transparent), transparent 40%),
-    radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 38%);
-}
-""",
-              encoding="utf-8",
+          css = (
+              '@use "./base.scss";\n\n'
+              '/* C preset: garden-network visual style */\n'
+              ':root {\n'
+              '  --radius-soft: 10px;\n'
+              '}\n\n'
+              '.page-title,\n'
+              'h1, h2, h3 {\n'
+              '  letter-spacing: 0.01em;\n'
+              '}\n\n'
+              'a.internal {\n'
+              '  text-underline-offset: 0.18em;\n'
+              '  text-decoration-thickness: 0.08em;\n'
+              '}\n\n'
+              '.popover,\n'
+              '.backlinks,\n'
+              '.toc,\n'
+              '.recent-notes {\n'
+              '  border-radius: var(--radius-soft);\n'
+              '  border: 1px solid var(--lightgray);\n'
+              '  box-shadow: 0 3px 14px color-mix(in srgb, var(--dark) 8%, transparent);\n'
+              '}\n\n'
+              '.graph,\n'
+              '#graph-container {\n'
+              '  border-radius: var(--radius-soft);\n'
+              '  border: 1px solid var(--lightgray);\n'
+              '  background:\n'
+              '    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--tertiary) 18%, transparent), transparent 40%),\n'
+              '    radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 38%);\n'
+              '}\n'
           )
+          css_path.write_text(css, encoding="utf-8")
           PY
 
       - name: Install Quartz dependencies

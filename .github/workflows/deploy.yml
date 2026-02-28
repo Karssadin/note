@@ -173,7 +173,7 @@ jobs:
                               'beforeBody: [Component.ArticleTitle(), Component.ContentMeta()],')
           text = text.replace(
               'Component.Graph(),',
-              'Component.Graph({ localGraph: { depth: 2 } }),'
+              'Component.Graph({ localGraph: { depth: 3 } }),'
           )
           layout.write_text(text, encoding="utf-8")
           PY
@@ -225,6 +225,18 @@ jobs:
               '  background:\n'
               '    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--tertiary) 18%, transparent), transparent 40%),\n'
               '    radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 38%);\n'
+              '}\n\n'
+              '/* hard-fix: keep explorer text visible */\n'
+              '.explorer, .explorer * {\n'
+              '  color: var(--dark) !important;\n'
+              '  opacity: 1 !important;\n'
+              '}\n'
+              '.explorer-content {\n'
+              '  overflow-x: hidden;\n'
+              '}\n'
+              '.explorer-content a {\n'
+              '  white-space: normal;\n'
+              '  word-break: break-word;\n'
               '}\n'
           )
           css_path.write_text(css, encoding="utf-8")

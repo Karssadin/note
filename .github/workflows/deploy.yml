@@ -70,7 +70,6 @@ jobs:
           from pathlib import Path
 
           ROOT = Path("quartz-src/content")
-          TARGET_KEYS = ("up", "down", "relation", "tags")
           MARK_START = "<!-- quartz-rel-start -->"
           MARK_END = "<!-- quartz-rel-end -->"
 
@@ -82,7 +81,7 @@ jobs:
 
           def parse_frontmatter_lists(frontmatter: str):
               lines = frontmatter.splitlines()
-              data = {k: [] for k in TARGET_KEYS}
+              data = []
               i = 0
               while i < len(lines):
                   raw = lines[i]
@@ -92,10 +91,7 @@ jobs:
                       continue
                   key = m.group(1)
                   i += 1
-                  if key not in data:
-                      while i < len(lines) and (lines[i].startswith(" ") or lines[i].startswith("\t")):
-                          i += 1
-                      continue
+                  values = []
                   while i < len(lines):
                       line = lines[i]
                       if not line.startswith(" ") and not line.startswith("\t"):
@@ -104,8 +100,10 @@ jobs:
                       if list_match:
                           value = strip_quotes(list_match.group(1))
                           if value:
-                              data[key].append(value)
+                              values.append(value)
                       i += 1
+                  if values:
+                      data.append((key, values))
               return data
 
           def to_wikilink(text: str) -> str:
@@ -123,14 +121,8 @@ jobs:
               ).lstrip("\n")
 
               lines = []
-              if rel["up"]:
-                  lines.append(f"- 上层：{'、'.join(to_wikilink(x) for x in rel['up'])}")
-              if rel["down"]:
-                  lines.append(f"- 下层：{'、'.join(to_wikilink(x) for x in rel['down'])}")
-              if rel["relation"]:
-                  lines.append(f"- 关联：{'、'.join(to_wikilink(x) for x in rel['relation'])}")
-              if rel["tags"]:
-                  lines.append(f"- 标签：{'、'.join(to_wikilink(x) for x in rel['tags'])}")
+              for key, values in rel:
+                  lines.append(f"- {key}: {'、'.join(to_wikilink(x) for x in values)}")
               if not lines:
                   return body
 
@@ -147,7 +139,7 @@ jobs:
               frontmatter = m.group(1)
               body = text[m.end():]
               rel = parse_frontmatter_lists(frontmatter)
-              if not any(rel.values()):
+              if not rel:
                   continue
               new_body = inject_block(body, rel)
               md.write_text(text[:m.end()] + new_body, encoding="utf-8")
@@ -158,12 +150,10 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
 
-          zh = Path("quartz-src/quartz/i18n/locales/zh-CN.ts")
-          text = zh.read_text(encoding="utf-8")
-          text = text.replace('title: "反向链接"', 'title: "连接到当前文件"')
-          text = text.replace('noBacklinksFound: "无法找到反向链接"', 'noBacklinksFound: "暂无连接到当前文件的内容"')
-          text = text.replace('title: "探索"', 'title: ""')
-          zh.write_text(text, encoding="utf-8")
+          en = Path("quartz-src/quartz/i18n/locales/en-US.ts")
+          text = en.read_text(encoding="utf-8")
+          text = text.replace('title: "Backlinks"', 'title: "连接到当前文件"')
+          en.write_text(text, encoding="utf-8")
           PY
 
       - name: Remove hierarchy navigation
@@ -195,7 +185,7 @@ jobs:
 
           cfg_path = Path("quartz-src/quartz.config.ts")
           cfg = cfg_path.read_text(encoding="utf-8")
-          cfg = cfg.replace('locale: "en-US"', 'locale: "zh-CN"')
+          cfg = cfg.replace('locale: "zh-CN"', 'locale: "en-US"')
           cfg = cfg.replace('header: "Schibsted Grotesk"', 'header: "Noto Serif SC"')
           cfg = cfg.replace('body: "Source Sans Pro"', 'body: "Noto Sans SC"')
           cfg = cfg.replace('code: "IBM Plex Mono"', 'code: "JetBrains Mono"')

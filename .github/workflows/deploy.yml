@@ -123,7 +123,7 @@ jobs:
                   return body
 
               block = "\n".join(
-                  [MARK_START, *lines, MARK_END, ""]
+                  [MARK_START, *lines, "", "---", MARK_END, ""]
               )
               return f"{block}\n{body}"
 

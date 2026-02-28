@@ -166,6 +166,20 @@ jobs:
           zh.write_text(text, encoding="utf-8")
           PY
 
+      - name: Remove hierarchy navigation
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          layout = Path("quartz-src/quartz.layout.ts")
+          text = layout.read_text(encoding="utf-8")
+          text = text.replace('      component: Component.Breadcrumbs(),\n', '')
+          text = text.replace('beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],',
+                              'beforeBody: [Component.ArticleTitle(), Component.ContentMeta()],')
+          text = text.replace('Component.Explorer(),\n', '')
+          layout.write_text(text, encoding="utf-8")
+          PY
+
       - name: Apply theme preset C1
         run: |
           python3 - <<'PY'

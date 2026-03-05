@@ -435,10 +435,20 @@ jobs:
           )
           text = text.replace('beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],',
                               'beforeBody: [Component.ArticleTitle(), Component.ContentMeta()],')
-          text = text.replace(
-              'Component.Graph(),',
-              'Component.Graph({ localGraph: { depth: 1, enableRadial: true } }),'
+          g = (
+              'Component.Graph({\n'
+              '  localGraph: {\n'
+              '    depth: 1,\n'
+              '    enableRadial: true,\n'
+              '    linkDistance: 50,\n'
+              '    repelForce: 0.6,\n'
+              '    centerForce: 0.3,\n'
+              '    scale: 1.05,\n'
+              '    fontSize: 0.65,\n'
+              '  },\n'
+              '}),'
           )
+          text = text.replace('Component.Graph(),', g)
           layout.write_text(text, encoding="utf-8")
           PY
 
@@ -486,9 +496,7 @@ jobs:
               '#graph-container {\n'
               '  border-radius: var(--radius-soft);\n'
               '  border: 1px solid var(--lightgray);\n'
-              '  background:\n'
-              '    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--tertiary) 18%, transparent), transparent 40%),\n'
-              '    radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 38%);\n'
+              '  background: #fafafa;\n'
               '}\n\n'
               '/* hard-fix: keep explorer text visible */\n'
               '.explorer, .explorer * {\n'

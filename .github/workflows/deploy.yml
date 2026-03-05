@@ -437,7 +437,7 @@ jobs:
                               'beforeBody: [Component.ArticleTitle(), Component.ContentMeta()],')
           text = text.replace(
               'Component.Graph(),',
-              'Component.Graph({ localGraph: { depth: 3 } }),'
+              'Component.Graph({ localGraph: { depth: 1, enableRadial: true } }),'
           )
           layout.write_text(text, encoding="utf-8")
           PY

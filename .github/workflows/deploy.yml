@@ -405,7 +405,8 @@ jobs:
 
           en = Path("quartz-src/quartz/i18n/locales/en-US.ts")
           text = en.read_text(encoding="utf-8")
-          text = text.replace('title: "Backlinks"', 'title: "连接到当前文件"')
+          text = text.replace('title: "Backlinks"', 'title: "链接到当前文件"')
+          text = text.replace('title: "Table of Contents"', 'title: "目录"')
           en.write_text(text, encoding="utf-8")
           PY
 

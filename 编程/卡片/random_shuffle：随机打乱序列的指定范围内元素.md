@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - STL
+up:
   - "[[STL常用算法]]"
-down: 
+down:
 relation:
 ---
 - `random_shuffle(iterator beg, iterator end) ;`指定范围内的元素随机调整次序

@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[流量控制、拥塞控制]]"
-down: 
+down:
 relation:
 ---
 

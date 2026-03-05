@@ -1,11 +1,16 @@
 ---
-tags: 
-up: 
+tags:
+up:
   - "[[常用函数、命名空间]]"
-down: 
+down:
 relation:
 ---
-```C
+
+`std::numeric_limits<T>` 提供各数值类型的编译期属性查询，位于 `<limits>` 头文件中，是类型安全的替代 C 语言 `INT_MAX` / `DBL_MIN` 等宏的方式。
+
+常用成员：`min()`（最小正值/最小值）、`max()`（最大值）、`lowest()`（最小值，含负）、`epsilon()`（浮点精度）、`infinity()`、`is_signed`。
+
+```cpp
 \#include <iostream>
 \#include <limits>
 using namespace std;

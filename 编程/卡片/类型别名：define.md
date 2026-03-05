@@ -1,9 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[数据类型]]"
   - "[[关键字、修饰符、操作符、宏等]]"
-down: 
+down:
 relation:
   - "[[const和define的区别]]"
   - "[[typedef和define的区别]]"

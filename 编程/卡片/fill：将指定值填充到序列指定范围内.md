@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - STL
+up:
   - "[[STL常用算法]]"
-down: 
+down:
 relation:
 ---
 - `fill(iterator beg, iterator end, value);`

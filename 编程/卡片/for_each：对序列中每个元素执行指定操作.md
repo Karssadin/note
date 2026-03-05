@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - STL
+up:
   - "[[STL常用算法]]"
-down: 
+down:
 relation:
   - "[[transform：对序列中每个元素执行指定操作并将结果存储到另一个序列中]]"
 ---

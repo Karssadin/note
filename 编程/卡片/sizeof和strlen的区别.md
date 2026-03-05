@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - C++
 up:
   - "[[关键字、修饰符、操作符、宏等]]"
-down: 
+down:
 relation:
   - "[[sizeof]]"
 ---

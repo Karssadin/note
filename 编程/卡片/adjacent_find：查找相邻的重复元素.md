@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - STL
+up:
   - "[[STL常用算法]]"
-down: 
+down:
 relation:
   - "[[find：查找第一个等于给定值的元素（自定义类型需要重载==）]]"
   - "[[find_if：查找第一个满足条件的元素]]"
@@ -12,5 +13,3 @@ relation:
     
     - beg 开始迭代器
     - end 结束迭代器
-
-

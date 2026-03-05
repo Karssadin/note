@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[控制结构]]"
-down: 
+down:
 relation:
   - "[[条件语句：if、switch、三目运算符]]"
 ---

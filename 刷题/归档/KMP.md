@@ -1,9 +1,6 @@
 ---
-up: 
+up:
   - "[[刷题/归档/字符串]]"
-down: 
-relation: 
-题目:
 ---
 [![](https://cdn.nlark.com/yuque/0/2023/jpg/25992891/1698381803502-b368599d-7ef6-4859-acbe-b98b33b26fa0.jpg)](https://cdn.nlark.com/yuque/0/2023/jpg/25992891/1698381803502-b368599d-7ef6-4859-acbe-b98b33b26fa0.jpg)
 

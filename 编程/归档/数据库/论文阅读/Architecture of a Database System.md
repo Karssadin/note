@@ -1,4 +1,8 @@
 ---
+tags:
+up:
+down:
+relation:
 title: Architecture of a Database System
 author:
   - Joseph M. Hellerstein
@@ -6,7 +10,6 @@ author:
   - James Hamilton
 domain:
   - 综述
-overdate:
 ---
 第 1 章概述
 第 2 章进程模型
@@ -15,4 +18,3 @@ overdate:
 第 5 章存储管理
 第 6 章事务：并发控制和恢复，
 第 7 章共享组件
-

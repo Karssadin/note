@@ -1,9 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[关键字、修饰符、操作符、宏等]]"
   - "[[数据类型]]"
-down: 
+down:
 relation:
   - "[[基础数据类型]]"
   - "[[sizeof和strlen的区别]]"

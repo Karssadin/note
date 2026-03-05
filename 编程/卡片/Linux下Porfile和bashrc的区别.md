@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - Linux
 up:
   - "[[Linux]]"
-down: 
+down:
 relation:
 ---
 [login shell和non-login shell的区别](https://blog.csdn.net/lws123253/article/details/89315218)

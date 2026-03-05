@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[面向对象]]"
-down: 
+down:
 relation:
   - "[[类型限定符：const、volatile]]"
 ---

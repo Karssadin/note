@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[关键字、修饰符、操作符、宏等]]"
-down: 
+down:
 relation:
   - "[[类型别名：define]]"
   - "[[常量：define、const]]"

@@ -3,237 +3,135 @@ tags:
 up:
   - "[[C++]]"
 down:
-  - "[[auto——自动类型推导]]"
+  - "[[RTTI]]"
   - "[[可变参数模板]]"
   - "[[constexpr函数]]"
+  - "[[decltype——表达式类型推导]]"
+  - "[[auto——自动类型推导]]"
+  - "[[auto与decltype结合使用——返回类型后置语法的应用]]"
+  - "[[type_traits]]"
+  - "[[static_assert]]"
+  - "[[SFINAE与enable_if]]"
+  - "[[alignas与alignof]]"
+  - "[[右值引用]]"
+  - "[[智能指针]]"
+  - "[[lambda]]"
+  - "[[范围for循环]]"
+  - "[[nullptr]]"
+  - "[[noexcept]]"
+  - "[[委托与继承构造函数]]"
+  - "[[默认构造-析构函数]]"
+  - "[[拷贝构造、移动构造、移动赋值]]"
+  - "[[构造函数的初始化列表]]"
+  - "[[RAII]]"
+  - "[[DEFER]]"
+  - "[[返回类型自动推导]]"
+  - "[[decltype auto]]"
+  - "[[泛型Lambda]]"
+  - "[[变量模板]]"
+  - "[[std--make_unique]]"
+  - "[[二进制字面量与数字分隔符]]"
+  - "[[std--integer_sequence]]"
+  - "[[constexpr常量]]"
+  - "[[结构化绑定]]"
+  - "[[if constexpr]]"
+  - "[[折叠表达式]]"
+  - "[[类模板实参推导（CTAD）]]"
+  - "[[std--optional]]"
+  - "[[std--variant]]"
+  - "[[std--any]]"
+  - "[[std--string_view]]"
+  - "[[std--filesystem]]"
+  - "[[inline变量]]"
+  - "[[constexpr lambda]]"
+  - "[[if-switch初始化语法]]"
 relation:
 ---
 # 早期
-## [[RTTI]]
 
-# 模板与编译期相关
-## C++11
-1. [[可变参数模板]]
-2. [[constexpr函数]]
-3. [[decltype——表达式类型推导]]
-4. [[auto——自动类型推导]]
-5. [[auto与decltype结合使用——返回类型后置语法的应用]]
-6. static_assert——编译期断言
-7. std::enable_if + SFINAE – 模板约束
-8. 标准 type traits 库——is_same, is_integral, remove_reference
-9. 内存对齐控制– alignas, alignof 
-
+1. [[RTTI]]
 
 # C++11
-## 
+
+## 类型推导与编译期
+
+1. [[auto——自动类型推导]]
+2. [[decltype——表达式类型推导]]
+3. [[auto与decltype结合使用——返回类型后置语法的应用]]
+4. [[constexpr函数]]：仅支持单条 return（C++14 大幅增强）
+5. [[constexpr常量]]
+6. [[static_assert]]：编译期断言
+7. [[type_traits]]：标准类型特征库（is_same, is_integral, remove_reference…）
+8. [[SFINAE与enable_if]]：模板约束机制
+9. [[alignas与alignof]]：内存对齐控制
+
+## 模板
+
+1. [[可变参数模板]]：`template <typename... Args>`
 
 ## 语言层增强
-### [[右值引用]]
-1. 左值引用
-2. 右值引用
-3. 左值和右值的区别
-    1. 左值引用和右值引用的区别
-4. 移动语义
-5. 完美转发
-    1. 实现完美转发
-    2. 完美转发中去掉forward会怎么样
-### [[智能指针]]
-1. auto_ptr
-2. unique_ptr
-3. shared_ptr
-4. weak_ptr
-5. unique_ptr和shared_ptr的区别
-### [[lambda]]
 
-### 范围for循环
+1. [[右值引用]]
+	1. 左值引用与右值引用的区别
+	2. 移动语义：`std::move`
+	3. 完美转发：`std::forward`
+2. [[智能指针]]：unique_ptr、shared_ptr、weak_ptr
+3. [[lambda]]：匿名函数对象
+4. [[范围for循环]]：`for (auto& x : container)`
+5. [[nullptr]]：类型安全的空指针
+6. [[noexcept]]：异常规格说明
 
-`for (char c : str)`
-### [[nullptr]]
+## 构造与析构
 
-## 构造函数
+1. [[默认构造-析构函数]]：`=default` / `=delete`
+2. [[委托与继承构造函数]]
+3. [[拷贝构造、移动构造、移动赋值]]
+	1. [[拷贝构造函数与拷贝赋值和移动赋值的区别？]]
+4. [[构造函数的初始化列表]]
 
-1. 默认构造函数的 =delete 和 = default
-    1. [[默认构造-析构函数]]
-2. 移动构造函数和移动赋值函数的引入
-    1. [[拷贝构造、移动构造、移动赋值]]
-    2. [[拷贝构造函数与拷贝赋值和移动赋值的区别？]]
-3. [[构造函数的初始化列表]]
+## 资源管理
 
-## [[RAII]]
+1. [[RAII]]
+2. [[DEFER]]
 
+# C++14
 
-## [[DEFER]]
+## 类型推导增强
 
-## 结构体和内存对齐：alignas
+1. [[返回类型自动推导]]：函数可省略尾置返回类型
+2. [[decltype auto]]：精确保留值类别，用于泛型转发
 
-- 对齐限定符`**alignas**`
+## 编译期增强
 
-## C++14
+3. 更强 [[constexpr函数]]：允许 if / for / switch，函数体可包含局部变量
+4. [[变量模板]]：`template <typename T> constexpr T pi = T(3.14);`
+5. [[std--integer_sequence]]：编译期整数序列，展开 tuple
 
-## C++17
+## 语言层增强
 
-=================
-要求对内容做非常详细的解释，比如它出来之前用什么，怎么用，它替代了什么，怎么使用，有什么特点、缺点、特殊使用技巧，14 17做了什么改进
+6. [[泛型Lambda]]：参数可用 `auto`
+7. [[std--make_unique]]：补齐工厂函数，避免裸 new
+8. [[二进制字面量与数字分隔符]]：`0b1010`、`1'000'000`
 
+# C++17
 
-## 1. 🧩 模板与编译期（Compile-time & Templates）
+## 编译期增强
 
-### ✅ C++11
-    
-- `constexpr` 函数（受限，不能写 if/for/switch）
-    
-- `decltype` – 表达式类型推导
-    
-- `auto` – 自动类型推导
-    
-- `static_assert` – 编译期断言
-    
-- `std::enable_if` + **SFINAE** – 模板约束
-    
-- 标准 **type traits** 库 – `is_same`, `is_integral`, `remove_reference` …
-    
-- **对齐控制** – `alignas`, `alignof`（编译期指令，影响内存布局）
-    
+1. [[if constexpr]]：编译期分支，替代 SFINAE
+2. [[折叠表达式]]：`(args + ...)` 简化参数包展开
+3. [[类模板实参推导（CTAD）]]：`std::pair p(1, 2.0)` 自动推导
+4. [[constexpr lambda]]：Lambda 可用于编译期求值
+5. [[inline变量]]：头文件中定义变量不违反 ODR
 
-### ✅ C++14
+## 标准库新增
 
-- 返回类型自动推导 – `auto f(T a, U b) { return a+b; }`
-    
-- `decltype(auto)` – 精确推导返回值
-    
-- 更强 `constexpr`（允许 if / for / switch 等语句）
-    
-- 变量模板 (Variable Templates) – `template <typename T> constexpr bool is_int_v = ...;`
-    
-- `std::integer_sequence` – 编译期整数序列工具
-    
+6. [[std--optional]]：安全表示"可能无值"
+7. [[std--variant]]：类型安全的 union
+8. [[std--any]]：类型擦除容器
+9. [[std--string_view]]：零拷贝字符串视图
+10. [[std--filesystem]]：跨平台文件系统操作库
 
-### ✅ C++17
+## 语法增强
 
-- `if constexpr` – 编译期条件分支
-    
-- 折叠表达式 (Fold Expressions) – `(args + ...)`
-    
-- 类模板实参推导 (CTAD) – `std::pair p(1, 2.0)`
-    
-- `inline` 变量 – 避免模板 ODR 问题
-    
-- `std::void_t` – 标准化 SFINAE idiom
-    
-- `constexpr lambda` – Lambda 可以用于编译期
-    
-
----
-
-## 2. 🗂 类型与内存管理（Types & Memory）
-
-### ✅ C++11
-
-- 智能指针 – `unique_ptr`, `shared_ptr`, `weak_ptr`
-    
-- `nullptr` – 类型安全空指针
-    
-- RAII 强化 – 借助智能指针
-    
-- 对齐控制（交叉归类，见 1）
-    
-
-### ✅ C++14
-
-- （无新增与内存直接相关的特性）
-    
-
-### ✅ C++17
-
-- 超对齐支持（over-aligned allocation）
-    
-- `new/delete` 对齐规则增强
-    
-
----
-
-## 3. 🍬 语法糖与可读性（Syntactic Sugar）
-
-### ✅ C++11
-
-- Lambda 表达式（运行期函数对象，**非 constexpr**）
-    
-- 范围 for 循环 – `for (auto& x : container)`
-    
-- 委托构造函数 – 一个构造函数调用另一个
-    
-- 继承构造函数 – `using Base::Base`
-    
-- 默认构造函数/析构函数 `=default` / `=delete`
-    
-- 构造函数初始化列表改进
-    
-
-### ✅ C++14
-
-- 泛型 Lambda – `[](auto x, auto y){...}`（仍是运行期）
-    
-- 二进制字面量 – `0b1010`
-    
-- 数字分隔符 – `1'000'000`
-    
-
-### ✅ C++17
-
-- 结构化绑定 – `auto [x, y] = pair;`
-    
-- if / switch 初始化语法 – `if (auto it = m.find(x); it != m.end()) ...`
-    
-
----
-
-## 4. 🛠️ 语义与右值引用（Semantics & Rvalue References）
-
-### ✅ C++11
-
-- 右值引用 `T&&` – 移动语义 & 完美转发
-    
-- `std::move`, `std::forward` – 转发工具
-    
-- 移动构造函数 / 移动赋值运算符
-    
-    - [[拷贝构造、移动构造、移动赋值]]
-        
-    - [[拷贝构造函数与拷贝赋值和移动赋值的区别]]
-        
-
-### ✅ C++14
-
-- （无新增）
-    
-
-### ✅ C++17
-
-- 更强 `constexpr`（接近普通函数，结合右值引用更实用）
-    
-
----
-
-## 5. 🔧 其他语言增强（Other Enhancements）
-
-### ✅ C++11
-
-- 内联命名空间 – `inline namespace v1 {}`
-    
-- 属性语法 – `[[nodiscard]]`, `[[deprecated]]`
-    
-- `noexcept` – 异常说明
-    
-
-### ✅ C++14
-
-- 属性改进 – `[[deprecated("reason")]]`
-    
-
-### ✅ C++17
-
-- `[[maybe_unused]]` – 抑制未使用警告
-    
-- `[[nodiscard("reason")]]` – 更强的返回值检查
-    
-- `[[fallthrough]]` – switch 显式贯穿
+11. [[结构化绑定]]：`auto [x, y, z] = tuple;` 直接解包
+12. [[if-switch初始化语法]]：`if (auto it = m.find(k); it != m.end())`

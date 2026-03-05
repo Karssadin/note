@@ -1,9 +1,6 @@
 ---
-up: 
+up:
   - "[[刷题/归档/哈希表]]"
-down: 
-relation: 
-题目:
 ---
 - [202. 快乐数](https://leetcode.cn/problems/happy-number/)
 - 使用set，判断sum是否重复出现，如果重复了就return false，否则就一直循环到1

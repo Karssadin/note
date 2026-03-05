@@ -1,9 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - 操作系统
+up:
   - "[[关键字、修饰符、操作符、宏等]]"
   - "[[数据类型]]"
-down: 
+down:
 relation:
   - "[[联合体：union]]"
   - "[[结构体：struct]]"

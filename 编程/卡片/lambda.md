@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[C++]]"
-down: 
+down:
 relation:
   - "[[lambda：使用lambda代替cmp]]"
 ---

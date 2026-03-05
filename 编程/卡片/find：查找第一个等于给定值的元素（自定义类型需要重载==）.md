@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - STL
+up:
   - "[[STL常用算法]]"
-down: 
+down:
 relation:
   - "[[find_if：查找第一个满足条件的元素]]"
   - "[[adjacent_find：查找相邻的重复元素]]"

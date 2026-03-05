@@ -4,7 +4,7 @@ tags:
 up:
   - "[[qtree_operator]]"
 down:
-  - "[[qtree_NLJoin]]"
+  - "[[编程/卡片/qtree_NLJoin]]"
 relation:
   - "[[join]]"
 ---

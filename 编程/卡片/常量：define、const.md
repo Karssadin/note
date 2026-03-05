@@ -1,11 +1,15 @@
 ---
-tags: 
+tags:
+  - C++
 up:
   - "[[变量和常量]]"
   - "[[关键字、修饰符、操作符、宏等]]"
-down: 
-relation:
+down:
   - "[[const和define的区别]]"
+  - "[[常引用：const]]"
+  - "[[常指针：const]]"
+  - "[[constexpr常量]]"
+relation:
   - "[[常引用：const]]"
   - "[[static和const的区别]]"
   - "[[typedef和define的区别]]"

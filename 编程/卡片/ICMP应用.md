@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[ICMP互联网控制报文协议]]"
-down: 
+down:
 relation:
 ---
 - Ping使用 ICMP 的"回显请求"和"回显应答"消息来测试网络连接。

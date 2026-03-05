@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[内存管理]]"
-down: 
+down:
 relation:
   - "[[malloc、calloc、realloc、alloca]]"
   - "[[定位new运算符（placement new）]]"

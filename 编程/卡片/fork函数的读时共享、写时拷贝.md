@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 操作系统
 up:
   - "[[进程与线程]]"
-down: 
+down:
 relation:
   - "[[fork]]"
   - "[[进程的操作函数]]"

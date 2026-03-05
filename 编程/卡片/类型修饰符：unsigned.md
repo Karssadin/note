@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[数据类型]]"
-down: 
+down:
 relation:
 ---
 ### `**unsigned**` 和 `**signed**` 可用于改变基本数据类型（特别是整数类型）的表示范围。例如，`**unsigned int**` 表示一个无符号整数，其范围是0到某个正最大值。

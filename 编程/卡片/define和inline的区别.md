@@ -1,9 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[关键字、修饰符、操作符、宏等]]"
   - "[[函数]]"
-down: 
+down:
 relation:
   - "[[内联函数：inline]]"
   - "[[typedef和define的区别]]"

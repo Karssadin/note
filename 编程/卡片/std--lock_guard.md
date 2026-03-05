@@ -1,10 +1,13 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[C++]]"
-down: 
+down:
 relation:
   - "[[std--unique_lock]]"
+  - "[[互斥锁]]"
+  - "[[同步和锁]]"
 ---
   
 

@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - 计算机网络
+up:
   - "[[搭建博客]]"
-down: 
+down:
 relation:
 ---
 # 购买域名和oss服务

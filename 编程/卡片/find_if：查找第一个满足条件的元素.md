@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - STL
+up:
   - "[[STL常用算法]]"
-down: 
+down:
 relation:
   - "[[find：查找第一个等于给定值的元素（自定义类型需要重载==）]]"
   - "[[adjacent_find：查找相邻的重复元素]]"

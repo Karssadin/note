@@ -1,37 +1,28 @@
 ---
-tags: 
-up: 
-  - "[[关键字、修饰符、操作符、宏等]]"
-down: 
+tags:
+  - C++
+up:
+  - "[[constexpr常量]]"
+down:
 relation:
   - "[[static和const的区别]]"
   - "[[常量：define、const]]"
   - "[[const和define的区别]]"
 ---
-- const标识只读，constexpr标识常量
-- 将一个成员函数标记为constexpr，则顺带也将它标记为了const。如果你将一个变量标记为constexpr，则同样它是const的。但相反并不成立，一个const的变量或函数，并不是constexpr的
 
----
+> 本卡内容已整合至 [[constexpr常量]]，请移步查阅完整的 constexpr vs const 对比。
 
-> constexpr变量
+## 核心区别速查
 
-- 将变量声明为constexpr类型，由编译器来验证变量的值是否是一个常量
-- constexpr指针的方向不能改变，指向的对象可以改变，与int* const一致
+| 维度 | `const` | `constexpr` |
+|------|---------|-------------|
+| 求值时机 | 运行期（可以是运行期值） | 编译期（必须编译期确定） |
+| 用途 | 声明只读变量 | 声明编译期常量/函数 |
+| 成员函数 | `const` 成员函数不修改对象 | `constexpr` 成员函数可用于常量表达式 |
+| 指针 | `const int*` 或 `int* const` | `constexpr` 指针本身是编译期常量 |
+| 函数 | 不可用于函数 | 可声明在编译期可求值的函数 |
 
-> constexpr函数
+- `const` 标识只读，`constexpr` 标识编译期常量
+- `constexpr` 隐含 `const`，但 `const` 不隐含 `constexpr`
 
-- 指能用于常量表达式的函数
-- 返回类型和所有形参类型都是字面值类型，函数体有且只有一条return语句：`constexpr int new() {return 42;}`
-- constexpr函数被隐式转换成了内联函数, constexpr和内联函数可以在程序中多次定义，一般定义在头文件
-
-> constexpr构造函数
-
-- 构造函数必须有一个空的函数体，即所有成员变量的初始化都放到初始化列表中。
-- 对象调用的成员函数必须使用constexpr修饰
-
----
-
-- constexpr的好处
-    - 为一些不能修改数据提供保障，写成变量则就有被意外修改的风险
-    - 有些场景，编译器可以在编译期对constexpr的代码进行优化，提高效率
-    - 相比宏来说，没有额外的开销，但更安全可靠
+完整内容见 [[constexpr常量]]

@@ -1,9 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[函数]]"
   - "[[变量和常量]]"
-down: 
+down:
 relation:
   - "[[函数参数]]"
   - "[[const和define的区别]]"

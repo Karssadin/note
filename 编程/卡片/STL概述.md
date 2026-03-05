@@ -1,5 +1,5 @@
 ---
-tags: 
+tags:
 up:
   - "[[STL]]"
 down:
@@ -7,57 +7,43 @@ down:
   - "[[迭代器失效]]"
 relation:
 ---
-[[STL优点]]
-[[迭代器失效]]
 
----
-- `STL:Standard Template Library`标准模板库
----
+STL（Standard Template Library）是 C++ 标准库的核心部分，基于泛型编程思想，提供通用的数据结构和算法。
 
-> vector存放内置数据类型
+## 六大组件
 
-- 容器：`vector`
-- 算法：`foreach`
-- 迭代器：`vector<int>::iterator`
+| 组件 | 说明 | 示例 |
+|------|------|------|
+| 容器（Container） | 管理数据的存储 | vector、map、set |
+| 算法（Algorithm） | 操作容器中的数据 | sort、find、count |
+| 迭代器（Iterator） | 容器与算法之间的桥梁 | begin()、end() |
+| 仿函数（Functor） | 重载 `operator()` 的类对象 | greater、less |
+| 适配器（Adapter） | 修饰容器/仿函数/迭代器的接口 | stack、queue |
+| 空间配置器（Allocator） | 管理内存分配与释放 | std::allocator |
 
-```C++
-vector<int> v;
-	v.push_back(10);
-	
-	//遍历方法1
-	vector<int>::iterator itBegin=v.begin();//指向容器中第一个元素
-	vector<int>::iterator itEnd=v.end();//指向容器中最后一个元素的下一个位置
-	if(itBegin!=itEnd){
-		cout<<*(itBegin++)<<endl;
-	}
-	//遍历方法2
-	for(vector<int>::iterator it=v.begin();it!=v.end();it++)
-		cout<<*it<<endl;
-	//遍历方法3,利用遍历算法
-	for_each(v.begin(),v.end(),Myprint);//类似回调函数就是一个被作为参数传递的函数
-	return 0;
+## 容器分类
+
+```
+容器
+├── 序列容器：vector、list、deque、string、array、forward_list
+├── 关联容器：set、multiset、map、multimap（红黑树）
+├── 无序容器：unordered_set、unordered_map（哈希表）
+└── 适配器：stack、queue、priority_queue
 ```
 
-> vector存放自定义数据类型
+## 迭代器分类
 
-```C++
-vector<Person> v;
-	//迭代器it得到的是Person类型的指针，*解引用得到对应的数据，也可以使用->直接获得Person的数据
-	//第三种遍历方法也类似，就是输出中添加Person.
-```
+| 类型 | 能力 | 典型容器 |
+|------|------|---------|
+| 输入/输出迭代器 | 单向只读/只写 | istream/ostream |
+| 前向迭代器 | 单向读写 | forward_list |
+| 双向迭代器 | 双向读写 | list、set、map |
+| 随机访问迭代器 | 随机跳转 | vector、deque |
 
-> vector嵌套容器
+## 设计思想
 
-```C++
-vector<vector<int> >v;
-	vector<int> v1
-	vector<int> v3;
-	v.push_back(v1);	
-	v.push_back(v3);
-	
-	for(vector<vector<int>>::iterator it=v.begin();it!=v.end();it++){
-		for(vector<int>::iterator vit=(*it).begin();vit!=(*it).end();vit++){
-			cout<<*vi<<" ";
-		}
-	}
-```
+- **泛型编程**：用模板将数据类型参数化，一套代码适用于所有类型
+- **解耦**：容器不需要知道算法的存在，算法不需要知道容器的内部结构，迭代器作为统一接口连接二者
+- **复杂度承诺**：每个容器和算法都有明确的时间复杂度保证，便于性能分析
+
+相关：[[STL优点]]、[[迭代器失效]]

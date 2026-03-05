@@ -1,11 +1,13 @@
 ---
-tags: 
+tags:
+  - MySQL
 up:
   - "[[编程/归档/八股文/MySQL]]"
-down: 
-relation: 
+down:
+relation:
+  - "[[页面置换算法]]"
+  - "[[内存池]]"
 ---
-
 - [[#Buffer Pool|Buffer Pool]]
 - [[#Buffer Pool的大小与配置|Buffer Pool的大小与配置]]
 - [[#Buffer Pool缓存内容|Buffer Pool缓存内容]]
@@ -19,17 +21,10 @@ relation:
 
 ## Buffer Pool
 
-- MySQL的数据虽然存储在磁盘上，但直接从磁盘读取数据是效率低下的。为了提高查询性能，MySQL引入了一个称为 Buffer Pool 的机制。Buffer Pool作为中间缓存，使得热数据能被高效读取而不必频繁访问磁盘。
+- MySQL 的数据存储在磁盘上，但直接从磁盘读取效率低。Buffer Pool 是 InnoDB 在内存中维护的缓存池，使热数据高效读取。
 - 基本工作原理：
-    - 当查询某数据时，首先会检查该数据是否已在 Buffer Pool 中。若在 Buffer  
-        Pool 中找到，则直接从内存中读取，大大加快了读取速度。若未找到，MySQL  
-        将从磁盘中读取数据并存储到 Buffer Pool 以供后续使用。  
-        
-    - 当数据被更新时，它首先在 Buffer Pool  
-        的相应位置被修改，并被标记为“脏页”。这些脏页在特定的情境下会被写回磁盘，如当  
-        Buffer Pool 空间不足或在 MySQL 正常关闭之前。  
-        
-
+    - **读取**：先检查数据是否在 Buffer Pool 中，命中则直接从内存读取；未命中则从磁盘加载到 Buffer Pool 再返回。
+    - **更新**：先在 Buffer Pool 中修改数据页并标记为脏页，后台线程异步将脏页刷回磁盘（WAL 机制）。
 ## Buffer Pool的大小与配置
 
 - Buffer Pool 是在 MySQL启动的时候，向操作系统申请的一片连续的内存空间，默认配置下 Buffer Pool只有 128MB

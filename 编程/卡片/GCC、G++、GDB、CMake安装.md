@@ -1,10 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - Linux
+up:
   - "[[Linux]]"
-  - "[[Linux下使用VS Code进行C++开发]]"
   - "[[GDB]]"
-down: 
+down:
 relation:
   - "[[Linux常用指令]]"
   - "[[apt update]]"

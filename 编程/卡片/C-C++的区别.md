@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[C++]]"
-down: 
+down:
 relation:
   - "[[C实现C++类]]"
 ---

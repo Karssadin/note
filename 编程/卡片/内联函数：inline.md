@@ -1,9 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[函数]]"
   - "[[关键字、修饰符、操作符、宏等]]"
-down: 
+down:
 relation:
   - "[[define和inline的区别]]"
   - "[[虚函数可以是内联函数吗？]]"

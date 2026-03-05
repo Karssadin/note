@@ -3,7 +3,7 @@ tags:
   - 数据库
 up:
   - "[[SQL语言]]"
-down: 
+down:
 relation:
 ---
 - **常见数据类型**：

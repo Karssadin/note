@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[内存管理]]"
-down: 
+down:
 relation:
   - "[[内存泄露]]"
 ---

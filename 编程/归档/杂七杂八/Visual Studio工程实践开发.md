@@ -1,8 +1,8 @@
 ---
 tags:
   - 编程
-up: 
-down: 
+up:
+down:
 relation:
   - "[[C++]]"
 ---

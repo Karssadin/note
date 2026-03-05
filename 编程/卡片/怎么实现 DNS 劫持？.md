@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[DNS]]"
-down: 
+down:
 relation:
   - "[[DNS域名解析]]"
 ---

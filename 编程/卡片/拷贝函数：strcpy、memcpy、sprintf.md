@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - C++
 up:
   - "[[C++]]"
-down: 
+down:
 relation:
   - "[[字符串操作函数：strcpy、strlen、strcat、strcmp]]"
 ---

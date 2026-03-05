@@ -3,7 +3,7 @@ tags:
   - 数据库
 up:
   - "[[SQL语言]]"
-down: 
+down:
 relation:
 ---
 - 子查询与嵌套查询

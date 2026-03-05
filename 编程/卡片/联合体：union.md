@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - 操作系统
+up:
   - "[[数据类型]]"
-down: 
+down:
 relation:
   - "[[struct和union的区别]]"
 ---

@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - STL
+up:
   - "[[STL常用算法]]"
-down: 
+down:
 relation:
   - "[[set_union：计算两个序列的并集]]"
   - "[[set_intersection：计算两个序列的交集]]"

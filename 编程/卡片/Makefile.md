@@ -1,9 +1,9 @@
 ---
-tags: 
-up: 
-  - "[[Linux下使用VS Code进行C++开发]]"
+tags:
+  - Linux
+up:
   - "[[Linux]]"
-down: 
+down:
 relation:
   - "[[静态链接和动态链接的区别]]"
   - "[[程序编译流程]]"

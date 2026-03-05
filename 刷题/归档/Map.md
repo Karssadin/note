@@ -1,9 +1,6 @@
 ---
-up: 
+up:
   - "[[刷题/归档/哈希表]]"
-down: 
-relation: 
-题目:
 ---
 - [697. 数组的度](https://leetcode.cn/problems/degree-of-an-array/)
 - 遍历，利用map(int, vector<int>)存储数字跟数字出现次数、首位、末尾，判断更新max_len与max_sum

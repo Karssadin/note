@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[HTTP协议]]"
-down: 
+down:
 relation:
   - "[[HTTP请求包含哪些部分]]"
   - "[[GET请求中URL编码的意义]]"

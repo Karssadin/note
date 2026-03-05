@@ -1,8 +1,8 @@
 ---
-tags: 
+tags:
 up:
   - "[[容器、适配器、工具]]"
-down: 
+down:
 relation:
   - "[[unordered_map-unordered_multimap]]"
 ---
@@ -71,4 +71,24 @@ public :
 	}
 };
 std::map<int,int,Mycompare> m1;
+```
+
+### find 和 [] 的区别
+
+- `[]`：如果 key 不存在，会自动插入一个具有该 key 和 value 默认值的元素
+- `find()`：如果 key 不存在，返回 `end()` 迭代器，不会插入
+- 只读访问时优先使用 `find()` 或 `count()`，避免意外插入
+
+### 使用结构体作为 key
+
+需要在结构体中重载 `<` 运算符，因为 map 底层红黑树需要比较大小来排序：
+
+```cpp
+struct Point {
+    int x, y;
+    bool operator<(const Point& other) const {
+        return x < other.x || (x == other.x && y < other.y);
+    }
+};
+std::map<Point, int> m;
 ```

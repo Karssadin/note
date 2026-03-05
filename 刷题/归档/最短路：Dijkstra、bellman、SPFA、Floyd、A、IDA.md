@@ -1,9 +1,6 @@
 ---
-up: 
+up:
   - "[[图]]"
-down: 
-relation: 
-题目:
 ---
 朴素Dijkstra——稠密图
 

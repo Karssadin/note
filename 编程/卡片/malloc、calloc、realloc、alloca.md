@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[内存管理]]"
-down: 
+down:
 relation:
   - "[[在不同内存区上分配空间]]"
   - "[[new-delete、malloc-free的区别]]"

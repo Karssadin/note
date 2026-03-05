@@ -4,9 +4,9 @@ tags:
 up:
   - "[[qtree_join]]"
 down:
+ - "[[编程/画板/qtree_NLJoin|qtree_NLJoin]]"
 relation:
   - "[[编程/卡片/StarRocks_NLjoin|StarRocks_NLjoin]]"
-  - "[[qtree_NLJoin.pdf]]"
 ---
 ## qtree 现有NLJoin
 - `qtree`的`NLJoin`创建过程中，没有`join_cond`. 将所有的`filter`都放到了`other_filter`中。
@@ -30,7 +30,7 @@ relation:
 ### probe
 - `InnerJoin`：`InnerJoin`与`qtree`实现逻辑一致，没有什么区别，生成笛卡尔积，进行条件过滤。
 	- 其中可以考虑借鉴的：不使用双层循环，批量插入行
-![[Pasted image 20241205112424.png]]
+![[qtree_NLJoin_01.png]]
 ----
 - `leftJoin`：`qtree`中的`NLJoin`并无`leftJoin`实现
 	- 生成笛卡尔积，根据不同`build_chunk`个数，笛卡尔积的`chunk`(也是`4096`行)有两个情况：
@@ -121,12 +121,12 @@ relation:
 				- `left join`需要等当前行结束之后在判断是否匹配上
 				- `left anti`如果提前遇到了匹配，当前行也就`probe`结束了，笛卡尔积阶段就提前结束。
 
-![[Pasted image 20241205134152.png]]
+![[qtree_NLJoin_02.png]]
 2. `_permute_left_join(chunk, probe_row_index, probe_rows)`: 从`index`开始，将`_probe_chunk`的数据填入`chunk`，`_build_chunk`对应位置填充`probe_rows`个`null`值
 
 
 - `otherJoin`执行流程图（图中`_probe_for_other_join()`的判断逻辑为真的执行流程未标出）：
-- ![[Pasted image 20241205113150.png]]
+- ![[qtree_NLJoin_03.png]]
 ----
 
 - `left join`：

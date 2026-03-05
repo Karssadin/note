@@ -6,12 +6,10 @@ up:
   - "[[StarRocks_Operator]]"
   - "[[NLJoin]]"
 down:
-  - "[[编程/白板/StarRocks_NLJoin|StarRocks_NLJoin]]"
+ - "[[编程/画板/StarRocks_NLJoin|StarRocks_NLJoin]]"
 relation:
-  - "[[qtree_NLJoin]]"
+  - "[[编程/卡片/qtree_NLJoin]]"
 ---
-[[编程/白板/StarRocks_NLJoin|StarRocks_NLJoin]]
-
 ## 算子
 - `cross_join_node`中实现的`cross`只是针对`INNER_JOIN`和`CROSS_JOIN`来实现，并没有相关的左右`join`功能，如果没有开启`pipeline`的话，对于不是这两种`join`的`cross_join`会抛出异常。
 	- `if (!state->enable_pipeline_engine() && _join_op != TJoinOp::CROSS_JOIN && _join_op != TJoinOp::INNER_JOIN)`
@@ -81,12 +79,12 @@ relation:
 				- `left join`需要等当前行结束之后在判断是否匹配上
 				- `left anti`如果提前遇到了匹配，当前行也就`probe`结束了，笛卡尔积阶段就提前结束。
 
-![[Pasted image 20241205134152.png]]
+![[qtree_NLJoin_02.png]]
 2. `_permute_left_join(chunk, probe_row_index, probe_rows)`: 从`index`开始，将`_probe_chunk`的数据填入`chunk`，`_build_chunk`对应位置填充`probe_rows`个`null`值
 
 
 - `otherJoin`执行流程图（图中`_probe_for_other_join()`的判断逻辑为真的执行流程未标出）：
-- ![[Pasted image 20241205113150.png]]
+- ![[qtree_NLJoin_03.png]]
 ----
 
 - `left join`：

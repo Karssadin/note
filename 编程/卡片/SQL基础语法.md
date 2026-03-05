@@ -3,7 +3,7 @@ tags:
   - 数据库
 up:
   - "[[SQL语言]]"
-down: 
+down:
 relation:
 ---
 - **DDL（Data Definition Language）**：用于定义数据库结构和对象。

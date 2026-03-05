@@ -1,3 +1,13 @@
+---
+tags:
+up:
+  - "[[qtree]]"
+down:
+relation:
+  - "[[qtree_优化器]]"
+  - "[[qtree_统计信息]]"
+---
+
 # GBase8a qtree 引擎性能调优指南 V1.0
 
 对应版本: 9.5.3.050_patch.15

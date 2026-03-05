@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[C++]]"
-down: 
+down:
 relation:
   - "[[拷贝函数：strcpy、memcpy、sprintf]]"
 ---

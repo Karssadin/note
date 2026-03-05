@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[TCP UDP]]"
-down: 
+down:
 relation:
   - "[[TIME_WAIT、CLOSE_WAIT]]"
   - "[[有很多TIME-WAIT状态如何解决]]"

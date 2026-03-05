@@ -1,9 +1,6 @@
 ---
-up: 
+up:
   - "[[刷题]]"
-down: 
-relation: 
-题目:
 ---
 # <algorithm>
 

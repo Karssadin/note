@@ -1,8 +1,10 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[C++]]"
-down: 
+  - "[[指针]]"
+down:
 relation:
   - "[[指针]]"
 ---

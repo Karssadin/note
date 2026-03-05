@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[DNS]]"
-down: 
+down:
 relation:
   - "[[DNS 为什么用 UDP？]]"
   - "[[怎么实现 DNS 劫持？]]"

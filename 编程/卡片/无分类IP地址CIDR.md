@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[IP地址]]"
-down: 
+down:
 relation:
   - "[[IPv4地址不够如何解决]]"
 ---

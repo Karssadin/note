@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 计算机网络
 up:
   - "[[网络层：IP]]"
-down: 
+down:
 relation:
   - "[[断网ping127.0.0.1]]"
 ---

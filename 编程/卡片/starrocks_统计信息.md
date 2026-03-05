@@ -1,10 +1,10 @@
 ---
 tags:
+  - 计算机网络
 up:
   - "[[StarRocks]]"
 down:
 relation:
-  - "[[StarRocks_统计信息收集 代码逻辑图.canvas|StarRocks统计信息收集 代码逻辑图]]"
   - "[[qtree_统计信息优化调研]]"
 ---
 - [[#收集|收集]]

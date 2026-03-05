@@ -1,9 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - Linux
+up:
   - "[[Linux]]"
-  - "[[Linux下使用VS Code进行C++开发]]"
-down: 
+down:
 relation:
   - "[[Linux常用指令]]"
 ---

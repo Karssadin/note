@@ -1,5 +1,6 @@
 ---
-tags: 
+tags:
+  - C++
 up:
   - "[[C++]]"
 down:

@@ -1,5 +1,6 @@
 ---
 tags:
+  - C++
 up:
   - "[[join]]"
 down:

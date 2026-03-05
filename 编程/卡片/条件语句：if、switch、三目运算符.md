@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[控制结构]]"
-down: 
+down:
 relation:
   - "[[循环语句：while、for]]"
 ---

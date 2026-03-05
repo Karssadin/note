@@ -1,8 +1,9 @@
 ---
-tags: 
-up: 
+tags:
+  - C++
+up:
   - "[[运算符]]"
-down: 
+down:
 relation:
   - "[[运算符重载]]"
 ---

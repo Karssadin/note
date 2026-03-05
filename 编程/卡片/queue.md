@@ -1,12 +1,12 @@
 ---
-tags: 
+tags:
+  - STL
 up:
   - "[[容器、适配器、工具]]"
-down: 
+down:
 relation:
   - "[[priority_queue]]"
 ---
-
 - 先进先出，有两个出口
 - 队头只能pop，队尾只能push
 - 队列不允许有遍历行行为

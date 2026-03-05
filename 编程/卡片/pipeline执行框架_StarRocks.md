@@ -1,8 +1,9 @@
 ---
-tags: 
+tags:
+  - 数据库
 up:
   - "[[StarRocks]]"
-down: 
+down:
 relation:
 ---
 ### 1. **背景介绍**

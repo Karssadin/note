@@ -4,8 +4,11 @@ tags:
 up:
   - "[[数据库总结]]"
   - "[[CMU15445]]"
-down: 
-relation: 
+down:
+  - "[[SQL基础语法]]"
+  - "[[SQL数据类型与操作符]]"
+  - "[[SQL高级特性]]"
+relation:
 ---
 [[SQL基础语法]]
 [[SQL数据类型与操作符]]

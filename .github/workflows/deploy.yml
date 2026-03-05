@@ -62,17 +62,6 @@ jobs:
             --exclude 'template/' \
             ./ quartz-src/content/
 
-      - name: Set notes list as homepage
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          root = Path("quartz-src/content")
-          src = root / "笔记列表.md"
-          dst = root / "index.md"
-          if src.exists():
-              dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
-          PY
-
       - name: Render custom relation fields
         run: |
           python3 - <<'PY'

@@ -1,5 +1,7 @@
 ---
 tags:
+  - C++
+  - STL
 up:
   - "[[STL概述]]"
 down:

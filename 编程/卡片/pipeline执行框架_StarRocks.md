@@ -5,6 +5,8 @@ up:
   - "[[StarRocks]]"
 down:
 relation:
+  - "[[StarRocks_Rpc]]"
+  - "[[StarRocks_Operator]]"
 ---
 ### 1. **背景介绍**
 

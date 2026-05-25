@@ -1,5 +1,6 @@
 ---
 tags:
+  - MySQL
 up:
   - "[[索引]]"
 down:

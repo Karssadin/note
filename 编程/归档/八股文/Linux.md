@@ -13,7 +13,7 @@ down:
   - "[[Linux目录结构]]"
   - "[[Linux文件编辑-vim、gedit、nano]]"
   - "[[Linux指令与选项 格式]]"
-  - "[[Linux下Porfile和bashrc的区别]]"
+  - "[[Linux下Profile和bashrc的区别]]"
   - "[[Makefile]]"
   - "[[Shell编程基础]]"
   - "[[Linux进程管理]]"
@@ -22,6 +22,8 @@ down:
 relation:
   - "[[Git]]"
   - "[[操作系统基础]]"
+  - "[[计算机网络]]"
+  - "[[Go工程化]]"
 ---
 # Linux 基础
 
@@ -31,7 +33,7 @@ relation:
 
 ## 文件系统
 1. [[Linux目录结构]]
-2. [[Linux下Porfile和bashrc的区别]]
+2. [[Linux下Profile和bashrc的区别]]
 3. 常见文件类型：普通文件 `-`、目录 `d`、链接 `l`、块设备 `b`、字符设备 `c`、管道 `p`、套接字 `s`
 4. 文件权限：`rwx`（读/写/执行），`chmod`、`chown`、`chgrp` 管理权限
 

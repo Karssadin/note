@@ -6,9 +6,10 @@ up:
   - "[[StarRocks_Operator]]"
   - "[[NLJoin]]"
 down:
- - "[[编程/画板/StarRocks_NLJoin|StarRocks_NLJoin]]"
+  - "[[编程/画板/StarRocks_NLJoin|StarRocks_NLJoin画板]]"
 relation:
-  - "[[编程/卡片/qtree_NLJoin]]"
+  - "[[qtree_NLJoin]]"
+  - "[[NLJoin]]"
 ---
 ## 算子
 - `cross_join_node`中实现的`cross`只是针对`INNER_JOIN`和`CROSS_JOIN`来实现，并没有相关的左右`join`功能，如果没有开启`pipeline`的话，对于不是这两种`join`的`cross_join`会抛出异常。

@@ -1,11 +1,19 @@
 ---
 tags:
+  - 数据库
 up:
   - "[[StarRocks]]"
 down:
-  - "[[编程/卡片/StarRocks_NLjoin]]"
+  - "[[StarRocks_NLjoin]]"
+  - "[[StarRocks_Rpc]]"
 relation:
   - "[[operator]]"
+  - "[[pipeline执行框架_StarRocks]]"
 ---
-[[编程/卡片/StarRocks_NLjoin]]
-[[StarRocks_Rpc]]
+# StarRocks_Operator
+
+StarRocks 算子相关笔记入口。
+
+1. [[StarRocks_NLjoin]]
+2. [[StarRocks_Rpc]]
+3. [[pipeline执行框架_StarRocks]]

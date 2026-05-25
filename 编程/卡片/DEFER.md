@@ -1,13 +1,22 @@
 ---
 tags:
-  - 计算机网络
+  - C++
+  - go
 up:
   - "[[C++]]"
+  - "[[RAII]]"
 down:
 relation:
+  - "[[Go defer-panic-recover]]"
+  - "[[异常处理]]"
+  - "[[RAII]]"
 ---
+# DEFER
+
+C++ 中可以用 RAII 模拟 Go 的 `defer` 语义：构造对象时保存清理函数，在对象离开作用域析构时执行。
+
 - [使用 C/C++ 模拟 defer 关键字 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/35191739)
-- C++中实现 `golang` 的DEFER语句，在当前作用域结束时执行目标函数。利用出作用域之后会调用对象的析构函数来实现相应逻辑
+- 该卡片讨论的是 C++ 模拟实现，Go 原生语义见 [[Go defer-panic-recover]]。
 
 ```C++
 // 以下示例中，m_jobs-- 操作会在 threadFunc执行结束后执行。
@@ -31,7 +40,7 @@ void Demo::threadFunc()
 #define DEFER(func) auto UNIQUE_DEFER_(_defer_) = defer_func(func)
 
 template <typename DeferFunction>
-clasee DeferOp
+class DeferOp
 {
 public:
 	explicit DeferOp(DeferFunction func)
@@ -43,7 +52,7 @@ public:
 	}
 private:
 	DeferFunction m_func;
-}
+};
 
 template <typename DeferFunction>
 DeferOp<DeferFunction> defer_func(DeferFunction f)

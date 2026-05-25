@@ -9,6 +9,7 @@ down:
 relation:
   - "[[qtree]]"
   - "[[duckDB]]"
+  - "[[数据库总结]]"
 ---
 ## StarRocks CBO 优化器
 ### 统计信息

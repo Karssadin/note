@@ -30,6 +30,6 @@ Linux 采用 FHS（Filesystem Hierarchy Standard）标准，一切皆文件，�
 ## 常用路径
 
 - `/usr/local/bin`：用户手动编译安装的程序
-- `/etc/profile` 和 `~/.bashrc`：环境变量配置（详见 [[Linux下Porfile和bashrc的区别]]）
+- `/etc/profile` 和 `~/.bashrc`：环境变量配置（详见 [[Linux下Profile和bashrc的区别]]）
 - `/var/log/syslog`：系统日志
 - `/proc/meminfo`：内存信息

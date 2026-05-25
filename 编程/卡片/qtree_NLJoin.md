@@ -4,9 +4,10 @@ tags:
 up:
   - "[[qtree_join]]"
 down:
- - "[[编程/画板/qtree_NLJoin|qtree_NLJoin]]"
+  - "[[编程/画板/qtree_NLJoin|qtree_NLJoin画板]]"
 relation:
-  - "[[编程/卡片/StarRocks_NLjoin|StarRocks_NLjoin]]"
+  - "[[StarRocks_NLjoin]]"
+  - "[[NLJoin]]"
 ---
 ## qtree 现有NLJoin
 - `qtree`的`NLJoin`创建过程中，没有`join_cond`. 将所有的`filter`都放到了`other_filter`中。

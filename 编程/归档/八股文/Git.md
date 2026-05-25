@@ -8,8 +8,12 @@ down:
   - "[[Git工作区模型]]"
   - "[[merge与rebase]]"
   - "[[revert与reset]]"
+  - "[[Git stash]]"
+  - "[[Git cherry-pick]]"
+  - "[[Git冲突解决]]"
 relation:
   - "[[Linux]]"
+  - "[[Go工程化]]"
 ---
 - [[#基础配置|基础配置]]
 - [[#核心概念|核心概念]]（详见 [[Git工作区模型]]）
@@ -20,8 +24,8 @@ relation:
 - [[#暂存与恢复|暂存与恢复]]
 - [[#远程操作|远程操作]]
 - [[#merge 与 rebase|merge 与 rebase]]（详见 [[merge与rebase]]）
-- [[#冲突解决|冲突解决]]
-- [[#cherry-pick|cherry-pick]]
+- [[#冲突解决|冲突解决]]（详见 [[Git冲突解决]]）
+- [[#cherry-pick|cherry-pick]]（详见 [[Git cherry-pick]]）
 - [[#revert 与 reset 区别|revert 与 reset 区别]]（详见 [[revert与reset]]）
 - [[#标签管理|标签管理]]
 - [[#.gitignore|.gitignore]]
